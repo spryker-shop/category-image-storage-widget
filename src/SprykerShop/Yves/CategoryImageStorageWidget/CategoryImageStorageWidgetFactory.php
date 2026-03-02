@@ -12,9 +12,6 @@ use SprykerShop\Yves\CategoryImageStorageWidget\Dependency\CategoryImageStorageW
 
 class CategoryImageStorageWidgetFactory extends AbstractFactory
 {
-    /**
-     * @return \SprykerShop\Yves\CategoryImageStorageWidget\Dependency\CategoryImageStorageWidgetToCategoryImageStorageClientInterface
-     */
     public function getCategoryImageStorageClient(): CategoryImageStorageWidgetToCategoryImageStorageClientInterface
     {
         return $this->getProvidedDependency(CategoryImageStorageWidgetDependencyProvider::CLIENT_CATEGORY_IMAGE_STORAGE);

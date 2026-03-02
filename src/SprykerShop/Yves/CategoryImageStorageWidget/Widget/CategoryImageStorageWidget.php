@@ -43,12 +43,6 @@ class CategoryImageStorageWidget extends AbstractWidget
      */
     protected $imageStorageTransferToSizeMap = [];
 
-    /**
-     * @param int $idCategory
-     * @param string $categoryName
-     * @param string $imageSetName
-     * @param string $imageSize
-     */
     public function __construct(
         int $idCategory,
         string $categoryName,
@@ -64,29 +58,16 @@ class CategoryImageStorageWidget extends AbstractWidget
             ->addParameter('imageUrl', $this->getCategoryImageUrl($idCategory, $imageSetName, $imageSize));
     }
 
-    /**
-     * @return string
-     */
     public static function getName(): string
     {
         return 'CategoryImageStorageWidget';
     }
 
-    /**
-     * @return string
-     */
     public static function getTemplate(): string
     {
         return '@CategoryImageStorageWidget/views/sub-category-image/sub-category-image.twig';
     }
 
-    /**
-     * @param int $idCategory
-     * @param string $imageSetName
-     * @param string $imageSize
-     *
-     * @return string
-     */
     protected function getCategoryImageUrl(int $idCategory, string $imageSetName, string $imageSize): string
     {
         $categoryImageSetCollectionTransfer = $this->findCategoryImageSetCollectionTransfer($idCategory);
@@ -99,11 +80,6 @@ class CategoryImageStorageWidget extends AbstractWidget
         return $this->getImageUrlBySize($imageSetImages, $imageSize);
     }
 
-    /**
-     * @param int $idCategory
-     *
-     * @return \Generated\Shared\Transfer\CategoryImageSetCollectionStorageTransfer|null
-     */
     protected function findCategoryImageSetCollectionTransfer(int $idCategory): ?CategoryImageSetCollectionStorageTransfer
     {
         return $this->getFactory()
@@ -155,11 +131,6 @@ class CategoryImageStorageWidget extends AbstractWidget
         return static::DEFAULT_CATEGORY_IMAGE;
     }
 
-    /**
-     * @param string $imageSize
-     *
-     * @return string
-     */
     protected function getImageStorageTransferSizePropertyName(string $imageSize): string
     {
         return $this->imageStorageTransferToSizeMap[$imageSize] ?? CategoryImageStorageTransfer::EXTERNAL_URL_SMALL;

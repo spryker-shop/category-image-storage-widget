@@ -11,11 +11,5 @@ use Generated\Shared\Transfer\CategoryImageSetCollectionStorageTransfer;
 
 interface CategoryImageStorageWidgetToCategoryImageStorageClientInterface
 {
-    /**
-     * @param int $categoryId
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\CategoryImageSetCollectionStorageTransfer|null
-     */
     public function findCategoryImageSetCollectionStorage(int $categoryId, string $localeName): ?CategoryImageSetCollectionStorageTransfer;
 }
